@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/fernie-cpu/form-validation#readme",
   "devDependencies": {
+    "css-loader": "^5.0.1",
     "eslint": "^7.19.0",
+    "style-loader": "^2.0.0",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0"
   }
