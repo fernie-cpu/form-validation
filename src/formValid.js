@@ -5,15 +5,21 @@ const validate = (e) => {
 
   const emailInput = document.getElementById('input-email');
   const countrySelection = document.getElementById('country');
-  const zipInput = document.getElementById('input-zip').value;
+  const zipInput = document.getElementById('input-zip');
+  const passwordInput = document.getElementById('input-password');
+  const confirmPwdInput = document.getElementById('input-confirm-password');
 
   const errorMsg = document.getElementById('error');
   const errorMsgCounntry = document.getElementById('errorCountry');
   const errorMsgZip = document.getElementById('errorZip');
+  const errorPassword = document.getElementById('errorPassword');
+  const errorConfirm = document.getElementById('confirmPassword');
 
   let valid = true;
   let zip = /[0-9]{5}-[0-9]{3}/i;
-  let resultZip = zip.test(zipInput);
+  let resultZip = zip.test(zipInput.value);
+  let password = /^[\w@-]{8,12}$/;
+  let resultPassword = password.test(passwordInput.value);
 
   if (!emailInput.value) {
     errorMsg.classList.add('visible');
@@ -43,6 +49,27 @@ const validate = (e) => {
   } else {
     errorMsgZip.classList.remove('visible');
     zipInput.classList.remove('invalid');
+  }
+
+  if (resultPassword === false) {
+    errorPassword.classList.add('visible');
+    passwordInput.classList.add('invalid');
+    errorPassword.setAttribute('aria-hidden', false);
+    errorPassword.setAttribute('aria-hidden', true);
+  } else {
+    errorPassword.classList.remove('visible');
+    passwordInput.classList.remove('invalid');
+  }
+
+  if (confirmPwdInput !== resultPassword) {
+    errorConfirm.classList.add('visible');
+    confirmPwdInput.classList.add('invalid');
+    errorConfirm.setAttribute('aria-hidden', false);
+    errorConfirm.setAttribute('aria-hidden', true);
+    return false;
+  } else if (confirmPwdInput === resultPassword) {
+    errorConfirm.classList.remove('visible');
+    confirmPwdInput.classList.remove('invalid');
   }
   return valid;
 };
