@@ -36,6 +36,26 @@ h1 {
 
 input,
 label,
+button,
 select {
   font-size: 1.2rem;
+  padding: 0.3rem;
+}
+
+button {
+  width: 100%;
+}
+
+.error {
+  display: none;
+  font-size: 0.8em;
+}
+
+.error.visible {
+  display: block;
+}
+
+input.invalid,
+select.invalid {
+  border-color: red;
 }

@@ -13,10 +13,14 @@
         <div class="form-group">
           <label for="input-email">Email</label>
           <input type="email" name="email" id="input-email" />
+          <span class="error" id="error" aria-hidden="true"
+            >That doesn't look like a valid email, champ!</span
+          >
         </div>
         <div class="form-group">
           <label for="input-country">Country</label>
-          <select id="country" name="country" class="form-control">
+          <select id="country" name="country">
+            <option value="invalid"></option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>
             <option value="Albania">Albania</option>
@@ -314,10 +318,16 @@
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
           </select>
+          <span class="error" id="errorCountry" aria-hidden="true"
+            >Please select a country</span
+          >
         </div>
         <div class="form-group">
           <label for="input-zip">Zip Code</label>
-          <input type="text" name="zip" id="input-zip" pattern="[0-9]*" />
+          <input type="text" name="zip" id="input-zip" />
+          <span class="error" id="errorZip" aria-hidden="true"
+            >Please enter a valid Zip Code</span
+          >
         </div>
         <div class="form-group">
           <label for="input-password">Password</label>
@@ -327,8 +337,10 @@
           <label for="input-confirm-password">Password</label>
           <input type="password" name="password" id="input-confirm-password" />
         </div>
+        <div class="form-group">
+          <button id="submit">Submit</button>
+        </div>
       </form>
-      <button id="submit">Submit</button>
     </div>
     <script src="main.js"></script>
   </body>
